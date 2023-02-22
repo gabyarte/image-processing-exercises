@@ -1,5 +1,13 @@
 CMake*
-build/
-.vscode/
-.DS_Store
+!CMakeLists.txt
 
+build/
+bin/
+.vscode/
+
+.DS_Store
+Testing
+Makefile
+*.cmake
+install_manifest.txt
+compile_commands.json
