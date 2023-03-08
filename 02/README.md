@@ -1,4 +1,4 @@
-## Exercise 02a.
+## Exercise 02a
 
 Implement a program 'exercise_02a_thresh' that thresholds
 an input image exercise_02a_input_01.pgm at level 'value':
@@ -12,7 +12,7 @@ The image 'cam_74_threshold100.pgm' is the result of thresholding
 
 ---
 
-## Exercise 02b.
+## Exercise 02b
 
 Implement a program 'exercise_02b_compare' that compares two
 input PGM images (arguments of the program). The names of the
@@ -37,14 +37,13 @@ should give us that the images are not equal.
 
 ---
 
-## Exercise 02c.
+## Exercise 02c
 
-Implement a program 'exercise*02c_sup' that computes
+Implement a program 'exercise_02c_sup' that computes
 the sup (supremum) of two input PGM images (arguments of the program).
 The names of the executable and of the input images are indicated in the
 following example call:
-exercise_02c_sup exercise_02c_input_01.pgm exercise_02c_input_02.pgm exercise_02c*
-output*01.pgm
+exercise_02c_sup exercise_02c_input_01.pgm exercise_02c_input_02.pgm exercise_02c_output_01.pgm
 Analogous, implement a program 'exercise_02c_inf' for the inf (infimum) operation:
 exercise_02c_inf exercise_02c_input_01.pgm exercise_02c_input_02.pgm exercise_02c*
 output_01.pgm
@@ -83,3 +82,21 @@ dilate_B (I))
 dilate_C(dilate_D (I)))
 Border effects should not be considered for simplicity, i.e.,
 all image pixels should be treated in the same manner.
+
+# Instructions
+
+## Compilation
+
+```bash
+cmake .
+make
+```
+
+## Run
+
+```bash
+./bin/exercise_02a_thresh data/cam_74.pgm 100 data/threshold_output.pgm
+./bin/exercise_02b_compare data/output1.pgm data/cam_74_threshold100.pgm
+./bin/exercise_02c_sup data/image1.pgm data/image2.pgm data/02c__sup_output.pgm
+./bin/exercise_02c_sup data/image1.pgm data/image2.pgm data/02c_inf_output.pgm
+```

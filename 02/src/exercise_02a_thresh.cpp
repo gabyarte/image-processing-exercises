@@ -12,17 +12,16 @@ cv::Mat process_threshold(cv::Mat* img, int threshold) {
 }
 
 int main(int argc, char* argv[]) {
-  if (argc < 3) {
-    std::cout << "Error: number of arguments: include input image file" << std::endl;
+  if (argc != 4) {
+    std::cout << "Error: number of arguments: input threshold output" << std::endl;
     return 1;
   }
-  std::string data_path = "data/";
   cv::Mat img1 = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
   int threshold = std::stoi(argv[2]);
 
   cv::Mat output_img = process_threshold(&img1, threshold);
 
-  cv::imwrite(data_path + "output1.pgm", output_img);
+  cv::imwrite(argv[3], output_img);
   cv::imshow("Window: Output", output_img);
-  // cv::waitKey(0);
+  cv::waitKey(0);
 }
