@@ -21,3 +21,22 @@ Use the property of computing a dilation of size i in terms of elementary dilati
 Some test images:
 immed_gray_inv.pgm (input image)
 immed_gray_inv_20051123_dil1.pgm (dilation of size 1, 8-connectivity) immed_gray_inv_20051123_dil2.pgm (dilation of size 2, 8-connectivity)
+
+# Instructions
+
+## Compilation
+
+```bash
+cmake .
+make
+```
+
+## Run
+
+```bash
+./bin/exercise_03a_erosion data/immed_gray_inv.pgm 2 data/erosion2.pgm   
+../02/bin/exercise_02b_compare data/erosion2.pgm data/immed_gray_inv_20051123_ero2.pgm   
+
+./bin/exercise_03b_dilation data/immed_gray_inv.pgm 2 data/dilation2.pgm  
+../02/bin/exercise_02b_compare data/dilation2.pgm data/immed_gray_inv_20051123_dil2.pgm  
+```

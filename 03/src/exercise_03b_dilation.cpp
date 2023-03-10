@@ -12,7 +12,7 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-cv::Mat erosion(cv::Mat* img1, int size) {
+cv::Mat dilation(cv::Mat* img1, int size) {
   cv::Mat output = img1->clone();
   std::vector<int> square_values;
 
@@ -23,7 +23,7 @@ cv::Mat erosion(cv::Mat* img1, int size) {
           square_values.push_back(img1->at<uchar>(x, y));
         }
       }
-      output.at<uchar>(i, j) = *std::min_element(square_values.begin(), square_values.end());
+      output.at<uchar>(i, j) = *std::max_element(square_values.begin(), square_values.end());
       square_values.clear();
     }
   }
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
     return 1;
   }
   cv::Mat img1 = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
-  cv::Mat output = erosion(&img1, std::atoi(argv[2]));
+  cv::Mat output = dilation(&img1, std::atoi(argv[2]));
   cv::imwrite(argv[3], output);
   cv::imshow("Window: Output", output);
 }
