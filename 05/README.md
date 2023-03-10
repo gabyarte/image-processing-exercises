@@ -12,6 +12,12 @@ should be identical.
 Note: use, for example, image cam_74.pgm as the
 exercise_04a_input_01.pgm input image
 
+```bash
+../04/bin/exercise_04a_opening data/cam_74.pgm 3 data/opening_3_output1.pgm     
+../04/bin/exercise_04a_opening data/opening_3_output1.pgm 3 data/opening_3_output2.pgm  
+../02/bin/exercise_02b_compare data/opening_3_output1.pgm data/opening_3_output2.pgm 
+# Output: True
+```
 ---
 
 ## Exercise 05b
@@ -26,3 +32,10 @@ Note: exercise_04b_output_01.pgm and exercise_04b_output_02.pgm
 should be identical.
 Note: use, for example, image cam_74.pgm as the
 exercise_04b_input_01.pgm input image
+
+```bash
+../04/bin/exercise_04b_closing data/cam_74.pgm 3 data/closing_3_output1.pgm     
+../04/bin/exercise_04b_closing data/closing_3_output1.pgm 3 data/closing_3_output2.pgm  
+../02/bin/exercise_02b_compare data/closing_3_output1.pgm data/closing_3_output2.pgm 
+# Output: True
+```
