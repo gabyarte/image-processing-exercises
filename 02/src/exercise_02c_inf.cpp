@@ -6,7 +6,7 @@ cv::Mat infimum(cv::Mat* img1, cv::Mat* img2) {
 
   for (int i = 0; i < output.rows; i++) {
     for (int j = 0; j < output.cols; j++) {
-      output.at<uchar>(j, i) = std::min(img1->at<uchar>(j, i), (img2->at<uchar>(j, i)));
+      output.at<uchar>(i, j) = std::min(img1->at<uchar>(i, j), (img2->at<uchar>(i, j)));
     }
   }
   return output;
@@ -19,8 +19,8 @@ int main(int argc, char* argv[]) {
   }
   cv::Mat img1 = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
   cv::Mat img2 = cv::imread(argv[2], cv::IMREAD_GRAYSCALE);
-  cv::Mat output = infimum(&img1, &img1);
+  cv::Mat output = infimum(&img1, &img2);
   cv::imwrite(argv[3], output);
   cv::imshow("Window: Output", output);
-  cv::waitKey(0);
+  // cv::waitKey(0);
 }

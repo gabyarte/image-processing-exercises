@@ -96,7 +96,7 @@ make
 
 ```bash
 ./bin/exercise_02a_thresh data/cam_74.pgm 100 data/threshold_output.pgm
-./bin/exercise_02b_compare data/output1.pgm data/cam_74_threshold100.pgm
-./bin/exercise_02c_sup data/image1.pgm data/image2.pgm data/02c__sup_output.pgm
-./bin/exercise_02c_sup data/image1.pgm data/image2.pgm data/02c_inf_output.pgm
+./bin/exercise_02b_compare data/threshold_output.pgm  data/cam_74_threshold100.pgm
+./bin/exercise_02c_sup data/image1.pgm data/image2.pgm data/02c_sup_output.pgm
+./bin/exercise_02c_inf data/image1.pgm data/image2.pgm data/02c_inf_output.pgm
 ```

@@ -5,7 +5,7 @@ cv::Mat process_threshold(cv::Mat* img, int threshold) {
   cv::Mat output_img = img->clone();
   for (int i = 0; i < img->rows; i++) {
     for (int j = 0; j < img->cols; j++) {
-      output_img.at<uchar>(j, i) = (img->at<uchar>(j, i) >= threshold) ? 255 : 0;
+      output_img.at<uchar>(i, j) = (img->at<uchar>(i, j) >= threshold) ? 255 : 0;
     }
   }
   return output_img;
@@ -23,5 +23,5 @@ int main(int argc, char* argv[]) {
 
   cv::imwrite(argv[3], output_img);
   cv::imshow("Window: Output", output_img);
-  cv::waitKey(0);
+  // cv::waitKey(0);
 }

@@ -8,7 +8,7 @@ bool compare_images(cv::Mat* img1, cv::Mat* img2) {
 
   for (int i = 0; i < img1->rows; i++) {
     for (int j = 0; j < img1->cols; j++) {
-      if (img1->at<uchar>(j, i) != img2->at<uchar>(j, i))
+      if (img1->at<uchar>(i, j) != img2->at<uchar>(i, j))
         return false;
     }
   }
