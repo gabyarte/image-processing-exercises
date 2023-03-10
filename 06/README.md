@@ -23,3 +23,22 @@ Note: opening-closing( I ) refers to: opening( closing( I ) ). Note: 8-connectiv
 Some test images:
 immed_gray_inv.pgm (input image)
 immed_gray_inv_20051123_ope2clo2.pgm (opening (closing (I)) with size 2, 8-connectivity) immed_gray_inv_20051123_ope4clo4.pgm (opening (closing (I)) with size 4, 8-connectivity)
+
+# Instructions
+
+## Compilation
+
+```bash
+cmake .
+make
+```
+
+## Run
+
+```bash
+./bin/exercise_06a_closing_opening  data/immed_gray_inv.pgm 4 data/clo4ope4.pgm   
+../02/bin/exercise_02b_compare data/clo4ope4.pgm data/immed_gray_inv_20051123_clo4ope4.pgm   
+
+./bin/exercise_06a_opening_closing  data/immed_gray_inv.pgm 4 data/ope4clo4.pgm   
+../02/bin/exercise_02b_compare data/ope4clo4.pgm  data/immed_gray_inv_20051123_ope4clo4.pgm 
+```
