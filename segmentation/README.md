@@ -24,11 +24,7 @@ make
 ### Run
 
 ```bash
-./bin/exercise_04a_opening data/immed_gray_inv.pgm 2 data/opening2.pgm   
-../02/bin/exercise_02b_compare data/opening2.pgm data/immed_gray_inv_20051123_ope2.pgm   
-
-./bin/exercise_04b_closing data/immed_gray_inv.pgm 2 data/closing2.pgm   
-../02/bin/exercise_02b_compare data/closing2.pgm data/immed_gray_inv_20051123_clo2.pgm 
+./bin/s1a data/hitchcock.png 1 data/test.png
 ```
 
 ## Collaborators
