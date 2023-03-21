@@ -3,11 +3,10 @@
 
 cv::Mat process_threshold(cv::Mat* img, int threshold) {
   cv::Mat output_img = img->clone();
-  for (int i = 0; i < img->rows; i++) {
-    for (int j = 0; j < img->cols; j++) {
-      output_img.at<uchar>(i, j) = (img->at<uchar>(i, j) >= threshold) ? 255 : 0;
-    }
-  }
+  output_img.forEach<uchar>([&threshold](uchar& pixel, const int* position) -> void {
+    pixel = (pixel >= threshold) ? 255 : 0;
+  });
+
   return output_img;
 }
 

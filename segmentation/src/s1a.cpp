@@ -12,7 +12,7 @@ cv::Mat image_difference(cv::Mat* img1, cv::Mat* img2) {
 
   for (int i = 0; i < diff.rows; i++) {
     for (int j = 0; j < diff.cols; j++) {
-      diff.at<u_char>(i, j) = img1->at<u_char>(i, j) - img2->at<u_char>(i, j);
+      diff.at<uchar>(i, j) = img1->at<uchar>(i, j) - img2->at<uchar>(i, j);
     }
   }
 
