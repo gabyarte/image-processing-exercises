@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <opencv2/opencv.hpp>
+#include <ranges>
 #include <vector>
 
 cv::Mat process_threshold(cv::Mat* img, int threshold) {
@@ -100,4 +101,44 @@ cv::Mat closing_opening(cv::Mat* img1, int size) {
 cv::Mat opening_closing(cv::Mat* img1, int size) {
   cv::Mat closed = closing(img1, size);
   return opening(&closed, size);
+}
+
+// 8  connection
+std::vector<cv::Point> get_neighbour(cv::Mat* img, cv::Point current_pos, int size = 1) {
+  std::vector<cv::Point> neighbours;
+  for (int y = std::max(current_pos.y - size, 0); y <= std::min(current_pos.y + size, img->rows - 1); y++) {
+    for (int x = std::max(current_pos.x - size, 0); x <= std::min(current_pos.x + size, img->cols - 1); x++) {
+      cv::Point point(x, y);
+      if (current_pos != point)
+        neighbours.push_back(point);
+    }
+  }
+  return neighbours;
+}
+
+std::vector<cv::Point> generate_region(cv::Mat* img, cv::Point current_pos, int size) {
+  int current_color = img->at<uchar>(current_pos.y, current_pos.x);
+  std::vector<cv::Point> to_visit = {current_pos};
+  std::vector<cv::Point> region;
+
+  while (!to_visit.empty()) {
+    cv::Point current_point = to_visit.back();
+
+    //  std::cout << region.size() << " should be 1 " << (std::find(region.begin(), region.end(), current_point) == region.end()) << "\n";
+
+    region.push_back(current_point);
+    to_visit.pop_back();
+    std::vector<cv::Point> neighbours = get_neighbour(img, current_point, size);
+    std::copy_if(neighbours.begin(),
+                 neighbours.end(),
+                 std::back_inserter(to_visit), [&region, &current_color, img](cv::Point val) {
+                   return (
+                       current_color == (int)img->at<uchar>(val) && (std::find(region.begin(), region.end(), val) == region.end()));
+                 });  // ? is not filtering as it should
+
+    // for (auto neighbour : get_neighbour(img, current_point, size)) {
+    //   if (current_color == (int)img->at<uchar>(current_point) && (std::find(region.begin(), region.end(), neighbour) == region.end())))
+    // }
+  }
+  return region;
 }
