@@ -1,0 +1,4 @@
+matplotlib==3.7.1
+opencv-python==4.7.*
+opencv-contrib-python==4.7.*
+ipykernel==6.22.*
