@@ -27,6 +27,8 @@ make
 ./bin/s1a data/hitchcock.png 1 data/s1a_output.png  
 ./bin/s1b data/particles.png 1 data/s1b_output.png 
 ./bin/s1c data/wheel.png    
+./bin/s1d data/coffee_markers.png data/test_coffe_markers.png  
+./bin/s1d data/coffee_grains.jpg data/test_coffe_grains.png 
 ```
 
 ## Collaborators
