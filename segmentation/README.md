@@ -24,7 +24,9 @@ make
 ### Run
 
 ```bash
-./bin/s1a data/hitchcock.png 1 data/test.png
+./bin/s1a data/hitchcock.png 1 data/s1a_output.png  
+./bin/s1b data/particles.png 1 data/s1b_output.png 
+./bin/s1c data/wheel.png    
 ```
 
 ## Collaborators

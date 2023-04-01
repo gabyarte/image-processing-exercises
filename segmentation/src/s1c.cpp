@@ -7,20 +7,23 @@
 
 #include "../../include/functions.cpp"
 
-// cv::Mat wheel_teeth_count(cv::Mat* img1, int size = 1) {
-//   cv::Mat img_8bit;
-//   cv::cvtColor(*img1, img_8bit, cv::COLOR_BGR2GRAY);
-//   cv::Mat dilated = dilation(&img_8bit, size);
-
-//   return image_difference(&img_8bit, &dilated);
-// }
-
 int main(int argc, char* argv[]) {
-  // if (argc != 4) {
-  //   std::cout << "Error: number of arguments: include input image file" << std::endl;
-  //   return 1;
-  // }
-  // cv::Mat img1 = cv::imread(argv[1]);
-  // cv::Mat output = countour_extraction(&img1, atoi(argv[2]));
-  // cv::imwrite(argv[3], output);
+  if (argc != 2) {
+    std::cout << "Error: number of arguments: include input image file" << std::endl;
+    return 1;
+  }
+
+  cv::Mat image = cv::imread(argv[1], cv::IMREAD_GRAYSCALE);
+
+  cv::Mat edges;
+  Canny(image, edges, 50, 150, 3);
+
+  cv::Mat kernel = getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
+  cv::dilate(edges, edges, kernel);
+
+  std::vector<std::vector<cv::Point>> contours;
+  findContours(edges, contours, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+  int teeth_count = contours.size();
+
+  std::cout << "Wheel teeth count: " << teeth_count << std::endl;
 }
