@@ -1,0 +1,8 @@
+*.pgm
+*.txt
+!cam_74.pgm              
+!cam_74_threshold100.pgm 
+!image1.pgm              
+!image1_inf_image2.pgm   
+!image1_sup_image2.pgm   
+!image2.pgm
