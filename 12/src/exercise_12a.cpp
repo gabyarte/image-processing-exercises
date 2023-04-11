@@ -75,6 +75,4 @@ int main(int argc, char* argv[]) {
     std::cerr << "Error: Cannot open output file" << std::endl;
     return 1;
   }
-
-  return 0;
 }
